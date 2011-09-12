@@ -1,0 +1,70 @@
+body {
+	margin-bottom:300px;
+	margin-top:20px;	
+}
+.instructions
+{
+	margin-top:-10px;
+	margin-bottom:10px;
+}
+.license
+{
+	float: right;
+	padding-top:15px;
+}
+
+input.xlarge
+{
+	width:340px !important;
+}
+
+#loader {display:none;text-align:center}
+
+.book {clear:both;margin-top:10px;padding:5px;height:180px;border-bottom:1px solid #efefef}
+.book .product_image {width:160px;height:160px;float:left;}
+.book .product_image img { padding-right:20px }
+.book .qr_code img {opacity:0.7;width:170px;height:170px;float:left;}
+
+.book .qr_code .details {float:right;opacity:0.0;margin-top:-20px;-webkit-transition: opacity 0.3s linear;-moz-transition: opacity 0.3s linear;}
+.book .qr_code .details a{text-decoration:underline}
+
+.book .qr_code:hover img,.book .qr_code:hover .details {cursor:pointer;opacity:1}
+
+
+.book  .list{padding-top:44px ;}
+
+#result 
+{
+	padding-top:20px;	
+}
+
+
+form.shake
+{
+	-webkit-animation: shake 0.2s;
+	-moz-animation: shake 0.2s;	
+}
+
+@-webkit-keyframes shake {
+ 0%,100%  {
+	margin-left:0;
+	-webkit-animation-timing-function: ease-in;	
+ }
+ 50% {
+  	margin-left:10px;
+	-webkit-animation-timing-function: ease-out;
+ }
+}
+
+@-moz-keyframes shake {
+ 0%,100%  {
+	margin-left:0;
+	-webkit-animation-timing-function: ease-in;	
+ }
+ 50% {
+  	margin-left:10px;
+	-webkit-animation-timing-function: ease-out;
+ }
+}
+
+

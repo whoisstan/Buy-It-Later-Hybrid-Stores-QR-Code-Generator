@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+	<!--3rd Party JS Libs-->
+	<script src="js/jquery-1.5.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/underscore.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/backbone.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/ICanHaz.min.js" type="text/javascript" charset="utf-8"></script>	
+	<script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&login=YOUR_BITLY_USERNAME&apiKey=BITLY_API_KEY"></script>	
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.1.min.css">	
+	<link rel="stylesheet" href="style/core.css" type="text/css" media="screen" charset="utf-8">
+	
+
+	<!--Templates-->
+    <script id="books" type="text/html">
+      <div class='row'>
+		<div class='product_image columns span1'>
+			<img src='{{image_url}}'/>
+		</div> 
+		<div class='span5 columns '>
+			<br/><b>{{title}}</b><br/>{{author}}<br/><br/>
+			<a href="{{detail_url}}">View Product on Amazon</a>
+		</div>
+		<div class='span5 columns qr_code' >
+			<div class='details'>
+			</div>
+		</div>
+	  </div>
+    </script>
+
+    <script id="qr_code_downloads" type="text/html">
+      <a target='_blank' href='{{shortUrl}}' >{{num}} x {{num}}</a><br/>
+    </script>
+
+    <script id="qr_code" type="text/html">
+      	<img src='{{shortUrl}}'>
+    </script>
+
+	<script id="result_header" type="text/html">	
+		<div class="row"><div class='page-header'><h5>Results: <img src='img/loader.gif' id='loader'></h5></div></div>
+	</script>
+
+    <script id="form" type="text/html">	
+		<div class="row">
+		<form>
+			<div class='span16 columns offset0'>
+				<label for='affiliate_id'>Affiliate ID</label>
+				<div class='input'><input class='xlarge' name='xlInput' size='50' type='text' id='affiliate_id'></div>
+				<br/><label for='term'>Book Title</label>
+				<div class='input'>
+					<input class='xlarge' id='term' name='xlInput' size='30' type='text' id='search'>
+					<button type='submit' class='btn primary' id='add'>Create QR Codes</button> 
+					<button type='reset' class='btn secondary' id='add'>Clear</button>
+					
+				</div>
+			</div>
+		</form>	
+		</div>			
+	</script>
+
+	<script id="error" type="text/html">	
+		<div class="row">
+			<div class='span10 columns offset2'>
+				<div class='alert-message error span10  '><a class='close' href='#'>×</a><p><strong>Oh snap!</strong> Something went wrong. Response Status: {{status}}</p></div>	
+			</div>
+		</div>
+	</script>	
+
+	<script id="nothing_found" type="text/html">	
+		<div class="row">
+			<div class='span10 columns offset2'>
+				<div class='alert-message info '><a class='close' href='#'>×</a><p><strong>Try something else!</strong> We could not find any matching products.</p></div>
+			</div>	
+		</div>
+	</script>	
+
+	
+	<title>Buy It Later Hybrid Stores QR Code Generator</title>
+</head>
+<body>
+	
+<div class='container'>	
+	<div class="row">
+		<div class='license'>
+			<a rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+				<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" />
+			</a>
+		</div>		
+		<div class="page-header">
+		    <h1>Buy It Later Hybrid Stores <small>QR Code Generator</small></h1>
+		</div>		
+		<img src="img/instructions.jpg" width="887" height="400" class="instructions">
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For more details on the concept read this <a href='http://whoisstan.tumblr.com/post/7350201293/buy-it-later-hybrid-stores'>article.</a> &nbsp;&nbsp;&nbsp;&nbsp;</p>
+		<br/>
+	</div>
+	<div class="row">				
+		<div class="page-header">
+		    <h3>Create Your "Buy It Later" QR Codes</h3>
+		</div>			
+		<div class="columns span14">
+			<p>This form lets you generate QR codes for amazon books using your amazon affiliate ID. The QR code contain shortened amzn.to URLs.</p>
+		</div>
+	</div>
+	<a name='search'></a>
+	<div  id='form'>
+	</div>
+
+	<div  id='result'>
+
+	</div>
+
+</div>
+	<script src="js/core.js" type="text/javascript" charset="utf-8"></script>
+</body>	
+</html>
