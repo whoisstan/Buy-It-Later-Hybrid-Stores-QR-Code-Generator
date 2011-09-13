@@ -12,6 +12,7 @@ This project is using
 - underscore https://github.com/documentcloud/underscore
 - JQuery  https://github.com/jquery/jquery
 - ICanHaz  https://github.com/andyet/ICanHaz.js
+- Twitter Bootstrap  https://github.com/twitter/bootstrap
 - Amazon API PHP  https://github.com/Exeu/Amazon-ECS-PHP-Library
 
 You need a 
