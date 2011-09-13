@@ -18,20 +18,19 @@ var ItemView = Backbone.View.extend({
 		return "http://chart.apis.google.com/chart?cht=qr&chs="+size+"x"+size+"&chl="+escape(url);
 	},
    	render: function(){
-		var self=this;
-		function callback_name(result)
-		{			
-			var _url=_.pluck(result.results,'shortUrl')[0];		
-			var shortUrl=self.createQRCodeURL(180,_url);
+		var self=this;		
+	    $(this.el).html(ich.books(this.model.toJSON()));
+	
+		this.request=$.getJSON('php/shorten.php?url='+escape(this.model.get('detail_url')), function(data) {	
 
+			var shortUrl=self.createQRCodeURL(180,data.shortUrl);
 			$('.qr_code',self.el).append(ich.qr_code({shortUrl:shortUrl}));
 			$('.details',self.el).append('<div class="list"><b>Download Sizes</b><br/></div>');
 			_.each([100,200,300,400,500], function(num){ 		
-					$('.list',self.el).append(ich.qr_code_downloads({shortUrl:self.createQRCodeURL(num,_.pluck(result.results,'shortUrl')[0]),num:num}));
-			});					
-		}
-		BitlyClient.call('shorten',{longUrl: this.model.get('detail_url'),history:1}, callback_name);	
-	    $(this.el).html(ich.books(this.model.toJSON()));
+					$('.list',self.el).append(ich.qr_code_downloads({shortUrl:self.createQRCodeURL(num,data.shortUrl),num:num}));
+			})
+		});
+		
 	    return this; 
    	}
  });
