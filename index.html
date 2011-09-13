@@ -11,7 +11,7 @@
 	<script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&login=USER_NAME&apiKey=API_KEY"></script>	
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.1.min.css">	
+	<link rel="stylesheet" href="style/bootstrap.css" type="text/css" media="screen" charset="utf-8">
 	<link rel="stylesheet" href="style/core.css" type="text/css" media="screen" charset="utf-8">
 	
 
@@ -45,21 +45,23 @@
 	</script>
 
     <script id="form" type="text/html">	
-		<div class="row">
+
 		<form>
-			<div class='span16 columns offset0'>
-				<label for='affiliate_id'>Affiliate ID</label>
-				<div class='input'><input class='xlarge' name='xlInput' size='50' type='text' id='affiliate_id'></div>
-				<br/><label for='term'>Book Title</label>
+			<div class="row"><div class='span16 columns offset0'>
+				<label for='affiliate_id'>Tracking ID</label>
 				<div class='input'>
-					<input class='xlarge' id='term' name='xlInput' size='30' type='text' id='search'>
+					<input class='xlarge' name='xlInput' size='50' type='text' id='affiliate_id' placeholder="Your Affiliate ID as provided by Amazon (optional)">
+				</div>
+			</div></div>
+			<div class="row"><div class='span16 columns offset0'>	
+				<label for='term'>Book Search</label>
+				<div class='input'>
+					<input class='xlarge' id='term' name='xlInput' size='30' type='text' id='search' placeholder="Author, Book Title, Content, ...">
 					<button type='submit' class='btn primary' id='add'>Create QR Codes</button> 
-					<button type='reset' class='btn secondary' id='add'>Clear</button>
-					
+					<button type='reset' class='btn secondary' id='add'>Clear</button>					
 				</div>
 			</div>
-		</form>	
-		</div>			
+		</form>				
 	</script>
 
 	<script id="error" type="text/html">	
@@ -84,19 +86,28 @@
 <body>
 	
 <div class='container'>	
+	<header>
+		<div class="row">
+			<div class='license'>
+				<a rel="license" href="http://creativecommons.org/licenses/by/3.0/">
+					<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" />
+				</a>
+			</div>		
+			<div class="page-header">
+		    	<h1>Buy It Later Hybrid Stores <small>QR Code Generator</small></h1>
+			</div>	
+		</div>
+	</header>	
+
 	<div class="row">
-		<div class='license'>
-			<a rel="license" href="http://creativecommons.org/licenses/by/3.0/">
-				<img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" />
-			</a>
-		</div>		
-		<div class="page-header">
-		    <h1>Buy It Later Hybrid Stores <small>QR Code Generator</small></h1>
-		</div>		
-		<img src="img/instructions.jpg" width="887" height="400" class="instructions">
-		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For more details on the concept read this <a href='http://whoisstan.tumblr.com/post/7350201293/buy-it-later-hybrid-stores'>article.</a> &nbsp;&nbsp;&nbsp;&nbsp;</p>
-		<br/>
+		<div class='span16 columns offset0'>
+		<figure>
+			<img src="img/instructions.jpg" width="844" height="340" class="instructions">
+			<figcaption><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For more details on the concept read this <a href='http://whoisstan.tumblr.com/post/7350201293/buy-it-later-hybrid-stores'>article.</a></p></figcaption>
+		</figure>
+		</div>
 	</div>
+
 	<div class="row">				
 		<div class="page-header">
 		    <h3>Create Your "Buy It Later" QR Codes</h3>
@@ -105,8 +116,11 @@
 			<p>This form lets you generate QR codes for amazon books using your amazon affiliate ID. The QR code contain shortened amzn.to URLs.</p>
 		</div>
 	</div>
+	
 	<a name='search'></a>
+
 	<div  id='form'>
+
 	</div>
 
 	<div  id='result'>

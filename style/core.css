@@ -6,6 +6,8 @@ body {
 {
 	margin-top:-10px;
 	margin-bottom:10px;
+	margin-left:30px;
+
 }
 .license
 {
@@ -17,6 +19,9 @@ input.xlarge
 {
 	width:340px !important;
 }
+
+figure {margin:0}
+figcaption {margin-left:40}
 
 #loader {display:none;text-align:center}
 
@@ -37,6 +42,7 @@ input.xlarge
 {
 	padding-top:20px;	
 }
+
 
 
 form.shake

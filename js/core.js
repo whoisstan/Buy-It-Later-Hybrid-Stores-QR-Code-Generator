@@ -20,8 +20,10 @@ var ItemView = Backbone.View.extend({
    	render: function(){
 		var self=this;
 		function callback_name(result)
-		{
-			var shortUrl=self.createQRCodeURL(180,_.pluck(result.results,'shortUrl')[0]);
+		{			
+			var _url=_.pluck(result.results,'shortUrl')[0];		
+			var shortUrl=self.createQRCodeURL(180,_url);
+
 			$('.qr_code',self.el).append(ich.qr_code({shortUrl:shortUrl}));
 			$('.details',self.el).append('<div class="list"><b>Download Sizes</b><br/></div>');
 			_.each([100,200,300,400,500], function(num){ 		
